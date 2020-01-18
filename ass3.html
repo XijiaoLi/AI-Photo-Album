@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Photo Album</title>
+	<link rel="stylesheet" type="text/css" href="ass3.css">
+	<link rel="stylesheet" type="text/css" href="speech-input.css">
+	<link rel="stylesheet" as="font" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,600,700|Material+Icons|Sacramento|Crimson+Text"/>
+	<!-- js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <!-- <script
+    src="https://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script> -->
+    <!-- </script> -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script type="text/javascript" src="lib/axios/dist/axios.standalone.js"></script>
+    <script type="text/javascript" src="lib/CryptoJS/rollups/hmac-sha256.js"></script>
+    <script type="text/javascript" src="lib/CryptoJS/rollups/sha256.js"></script>
+    <script type="text/javascript" src="lib/CryptoJS/components/hmac.js"></script>
+    <script type="text/javascript" src="lib/CryptoJS/components/enc-base64.js"></script>
+    <script type="text/javascript" src="lib/url-template/url-template.js"></script>
+    <script type="text/javascript" src="lib/apiGatewayCore/sigV4Client.js"></script>
+    <script type="text/javascript" src="lib/apiGatewayCore/apiGatewayClient.js"></script>
+    <script type="text/javascript" src="lib/apiGatewayCore/simpleHttpClient.js"></script>
+    <script type="text/javascript" src="lib/apiGatewayCore/utils.js"></script>
+    <script type="text/javascript" src="lib/apigClient.js"></script>
+	<!-- <script type="text/javascript" src="style.js"></script> -->
+	<script type="text/javascript" src="ass3.js"></script>
+	<meta charset="UTF-8">
+	<meta name="description" content="This is the web built during the cloud computing course in Columbia University.">
+	<meta name="author" content="Xijiao Li">
+</header>
+
+<body style="background-image:url(img-75.jpg)">
+	<section class="fade-6" style="min-height: 850px;">
+		<section style="min-height: 300px;">
+			<h1>Welcome to your Photo Album</h1>
+		</section>
+		<section style="min-height: 300px;">
+			<div class="layer" id="ThreeChoicesLayer">
+				<div class="col-7 wrap">
+					<!-- <div class="col-4">
+						<div class="abutton" id="TextSearchChoice">
+							<i class="material-icons">text_fields</i>
+	          				<h3>Text Search</h3>
+	          				<p class="tiny opacity-6">Enter the key words to find your target photo.</p>
+						</div>
+					</div> -->
+					<div class="col-6">
+						<div class="abutton" id="VoiceSearchChoice">
+							<i class="material-icons">record_voice_over</i>
+	          				<h3>Voice Search</h3>
+	          				<p class="tiny opacity-6">Speak or type the key words to find your target photo.</p>
+						</div>
+					</div>
+					<div class="col-6">
+						<div class="abutton" id="UploadPhotoChoice">
+							<i class="material-icons">panorama</i>
+			                <h3>Upload Photos</h3>
+			                <p class="tiny opacity-6">Upload your new photos to this magic album.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Layer 1: submit photo to s3 -->
+			<div class="layer choice" id="UploadPhotoLayer">
+				<div class="col-5 wrap">
+					<h4>Upload Your Photos</h4>
+			        <form action='#' onsubmit="return false;" id="uploadbanner" entctype="multipart/form-data" method="post" class="center">
+						<input class="hinput" id="fileupload" name="myfile" type="file"/>
+						<label id="lphoto_input" for="fileupload" style="display: block;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> <span>Choose a file&hellip;</span></label>
+						<!-- <input id="fileupload" name="myfile" type="file"/> -->
+					</form>
+					<div class="col-6 inline">
+				        <button type="submit" id="submit_photo_btn" class="button blue">Submit</button>
+			        </div>
+			        <div class="col-6 inline">
+			            <button class="button blue back_btn">Back </button>
+			        </div>
+				</div>
+			</div>
+			<!-- Layer 2: text input -->
+			<!-- <div class="layer choice" id="TextSearchLayer">
+				<div class="col-4 wrap">
+					<h4>Search for Images</h4>
+			        <form action="#" autocomplete="off" class="center">
+			            <input type="text" class="text-input" name="image_key" placeholder="type here"/>
+			        </form>
+			        <div class="col-6 inline">
+				        <button type="submit" class="button blue submit_key_btn">Search</button>
+			        </div>
+			        <div class="col-6 inline">
+			            <button class="button blue back_btn">Back</button>
+			        </div>
+				</div>
+			</div> -->
+			<!-- Layer 3: voice input -->
+			<div class="layer choice" id="VoiceSearchLayer">
+				<div class="col-4 wrap">
+					<h4>Search for Images</h4>
+			        <form autocomplete="off" class="center">
+			            <input type="text" class="speech-input" name="image_key" placeholder="type here" name="searchTerm" id="q" style="display: block;"/>
+			        </form>
+			        <div class="col-6 inline">
+				        <button type="submit" class="button blue submit_key_btn">Search</button>
+			        </div>
+			        <div class="col-6 inline">
+			            <button class="button blue back_btn">Back</button>
+			        </div>
+				</div>
+			</div>
+			<!-- Layer 4: search result -->
+			<div class="layer choice" id="SearchReaultsLayer">
+				<div class="col-9 wrap" style="margin-top: -70px;">
+					<h2> --------- Search Results --------- </h2>
+			        <ul></ul>
+				</div>
+			</div>
+		</section>
+	</section>
+	<script src="speech-input.js"></script>
+</body>
+</html>
+

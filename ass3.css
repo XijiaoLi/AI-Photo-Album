@@ -1,0 +1,359 @@
+@charset "UTF-8";
+
+/* CSS RESET */
+html, body, div, span, h1, h2, h3, blockquote, big, cite, code, img {
+  border: 0;
+  vertical-align: baseline;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  font-family: "Roboto", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+section{
+  position: relative;
+}
+
+h1 {
+  position: relative;
+  margin: auto;
+  text-align: center;
+  top: 95px;
+  font-family: 'Love Ya Like A Sister', cursive;
+  font-size: 60px;
+  color: #fff;
+}
+
+h1.bold {
+  font-weight: 700;
+}
+
+h2 {
+  text-align: center;
+  font-size: 45px;
+  margin-bottom: 12px;
+  font-weight: 400;
+  font-family: 'Sacramento', cursive;
+  color: #fff;
+}
+
+h3 {
+  text-align: center;
+  font-size: 33px;
+  margin-bottom: 12px;
+  font-weight: 400;
+  font-family: 'Crimson Text', serif;
+}
+
+h4 {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 25px;
+  font-weight: 400;
+  font-family: "Roboto", sans-serif;
+  color: #fff;
+}
+
+p {
+  position: relative;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 18px;
+  text-align: left;
+  font-size: 21px;
+  line-height: 1.6363636364;
+  font-weight: 300;
+  font-family: "Roboto", sans-serif;
+}
+
+.center {
+  margin: auto;
+  text-align: center;
+}
+
+.inline {
+   display: inline-block;
+}
+
+.layer {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  width: 100%;
+}
+
+.col-d5 {width: 20%;}
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+[class*='col-'] {
+  min-height: 300px;
+  float: left;
+  padding: 0;
+}
+
+[class*='col-'].wrap {
+  float: none;
+  margin: auto;
+}
+
+.abutton {
+  width: 90%;
+  margin: auto;
+  margin-top: 20px;
+  padding: 20px 20px;
+  position: relative;
+  transition: 0.25s;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.abutton:hover {
+  background: #fff;
+  color: #202020;
+  opacity: 1;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  border-color: transparent !important;
+}
+
+i.material-icons {
+  text-align: center;
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 34px;
+  margin-bottom: 15px;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-font-feature-settings: 'liga';
+          font-feature-settings: 'liga';
+}
+
+
+input[type="search_key"] {
+  background-color: #fff;
+  position: relative;
+  background: #fff;
+  padding: 15px 16px 16px;
+  border: none;
+  font-size: 16px;
+  color: #242424;
+  outline: none;
+  border-radius: 4px;
+  width: 40%;
+  margin: auto;
+  margin-bottom: 20px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  transition: 0.15s;
+}
+
+.button {
+  width: 80%;
+  position: absolute;
+  margin-left: 10%;
+  margin-top: 20px;
+  border-radius: 4px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: #fff;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  background: #202020;
+  font-size: 13px;
+  font-weight: 400;
+  text-align: center;
+  vertical-align: top;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  letter-spacing: normal !important;
+  white-space: nowrap;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.1);
+  -webkit-appearance: none;
+  transition: 0.3s;
+  -webkit-user-select: none !important;
+     -moz-user-select: none !important;
+      -ms-user-select: none !important;
+          user-select: none !important;
+}
+
+.d2 {
+  width: 38%;
+}
+
+.d3 {
+  width: 30%;
+}
+
+.blue {
+  background: #2196F3 !important;
+  color: #fff !important;
+  position: relative;
+}
+
+/*#UploadPhotoLayer, #TextSearchLayer, #VoiceSearchLayer{
+  visibility: hidden;
+  z-index: -3;
+}
+
+#ThreeChoicesLayer{
+  visibility: visible;
+  z-index: 3;
+}*/
+
+.choose_file{
+  margin-top: 10px
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.blue:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, #fff 0%, #000 100%);
+  z-index: -1;
+  opacity: 0.1;
+}
+
+.blue:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, #fff 0%, #000 100%);
+  z-index: -2;
+  opacity: 0.1;
+}
+
+.fade-6 {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.background{
+  min-height: 100%;
+}
+
+.hinput {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.hinput + label {
+  width: 36%;
+  margin: auto;
+  margin-bottom: 20px;
+  margin-top: 30px;
+  padding: 10px 10px 10px 10px;
+  font-size: 13px;
+  font-weight: 400;
+  color: #2196F3;
+  background-color: #fff;
+  display: inline-block;
+}
+
+.hinput + label svg {
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+  fill: currentColor;
+  margin-top: -0.25em;
+  margin-right: 0.25em;
+    /* 4px */
+}
+
+/*.hinput:focus + label,
+.hinput + label:hover {
+  background-color: #2196F3;
+  color: #fff;
+}*/
+
+.hinput + label {
+  cursor: pointer; /* "hand" cursor */
+}
+
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+
+a.github-button {
+    display: inline-block;
+    width: 80px;
+}
+
+.tag-name {
+  color: crimson;
+}
+
+.tag-marker {
+  color: #0000f0;
+}
+
+.speech-input {
+  margin-top: 20px;
+  width: 405px;
+  max-width: 100%;
+  font-size: 25px;
+  padding: 0.4em;
+}
+
+.text-input {
+  margin-top: 10px;
+  margin: auto;
+  width: 88%;
+  font-size: 25px;
+  padding: 10px 10px 10px 10px;
+}
+
+textarea {
+  height: 160px;
+}
